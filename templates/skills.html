@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills & Reviews | Your Name</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='skills.css') }}">
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- GSAP ScrollTrigger Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- jQuery CDN (optional, if needed elsewhere) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Font Awesome for icons (use the CSS CDN version to avoid CORS issues) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Navigation Bar (Optional) -->
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="logo">Aqeel</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}#hero">Home</a></li>
+        <li><a href="{{ url_for('skills') }}">Skills</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="skills-page">
+    <!-- Header Section -->
+    <header class="header">
+      <h1>My Skills & Expertise</h1>
+      <p>Explore my technical prowess and see what my clients have to say.</p>
+    </header>
+
+    <!-- Skills Container -->
+    <section class="skills-container">
+      <div class="skill-card" data-skill="python">
+        <div class="skill-icon">
+          <i class="fab fa-python"></i>
+        </div>
+        <h3>Python</h3>
+        <p>Expert in Python programming, automation, and data analysis.</p>
+      </div>
+      <div class="skill-card" data-skill="ai">
+        <div class="skill-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3>Artificial Intelligence</h3>
+        <p>Machine Learning, Deep Learning, and Data Science solutions.</p>
+      </div>
+      <div class="skill-card" data-skill="web">
+        <div class="skill-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Web Development</h3>
+        <p>Building modern, responsive, and interactive web applications.</p>
+      </div>
+      <div class="skill-card" data-skill="databases">
+        <div class="skill-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>Databases</h3>
+        <p>Expertise in SQL, NoSQL, and efficient data management.</p>
+      </div>
+      <!-- Add more skill cards as needed -->
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h2>What Clients Say</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <p class="review">"Working with YourName was a transformative experience. Their expertise in Python and AI brought our project to life!"</p>
+          <h4 class="client-name">— Alex Johnson</h4>
+        </div>
+        <div class="testimonial-card">
+          <p class="review">"A true professional! The futuristic web applications and smooth animations exceeded our expectations."</p>
+          <h4 class="client-name">— Maria Gonzalez</h4>
+        </div>
+        <div class="testimonial-card">
+          <p class="review">"Their attention to detail and innovative approach to data management is outstanding."</p>
+          <h4 class="client-name">— David Lee</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta">
+      <h2>Ready to Collaborate?</h2>
+      <p>Let's bring your project to the next level with cutting-edge technology.</p>
+      <a href="index.html#contact" class="btn">Contact Me</a>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='skills.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Aqeel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='project.css') }}">
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- GSAP ScrollTrigger Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- jQuery (optional, for smooth scroll if needed) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="logo">Aqeel</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}#hero">Home</a></li>
+        <li><a href="{{ url_for('skills') }}">Skills</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section for Projects -->
+  <section id="project-hero" class="project-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Innovative Projects</h1>
+      <p>Exploring the future with cutting-edge technology</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      {% for project in projects %}
+      <div class="project-card" data-project="{{ project.id }}">
+        <div class="card-img">
+          {% if project.image %}
+            <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }}" />
+          {% else %}
+            <img src="https://via.placeholder.com/500x300/0d0d0d/ff8c00?text=No+Image" alt="{{ project.title }}" />
+          {% endif %}
+        </div>
+        <div class="card-info">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description|safe }}</p>
+          <a href="{{ url_for('project_detail', id=project.id) }}" class="card-btn">
+            View Details <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="cta-section">
+    <h2>Ready to Build the Future?</h2>
+    <p>Let’s collaborate and create something extraordinary.</p>
+    <a href="{{ url_for('contact') }}" class="btn">Get In Touch</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Aqeel. All Rights Reserved.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='project.js') }}"></script>
+</body>
+</html>

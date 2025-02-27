@@ -1,0 +1,359 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0d0d0d;
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-container .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff8c00;
+    text-decoration: none;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+.nav-links li a:hover {
+    color: #ff0080;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    padding-top: 60px; /* Adjust for fixed nav height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    padding: 20px;
+}
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff8c00, #ff0080);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 2s ease-in-out;
+}
+.hero-text h2 {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    height: 50px;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(90deg, #ff8c00, #ff0080);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
+}
+
+/* Hero Image */
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    padding: 20px;
+}
+.hero-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ff8c00;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
+    transition: transform 0.3s;
+}
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Skills Section */
+#skills {
+    text-align: center;
+    padding: 60px 20px;
+    background: #1a1a1a;
+}
+#skills h2 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(20px);
+}
+#skills ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+#skills li {
+    background: rgba(255, 140, 0, 0.8);
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+#skills li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 140, 0, 0.6);
+}
+.skill-icon {
+    font-size: 1.5rem;
+}
+
+/* Projects Section */
+#projects {
+    padding: 60px 20px;
+    background: #0d0d0d;
+    text-align: center;
+}
+#projects h2 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.5);
+}
+.project-inner {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+.project-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid #ff8c00;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+.project-btn:hover {
+    background: #ff8c00;
+    color: #0d0d0d;
+}
+
+/* Contact Section */
+#contact {
+    padding: 60px 20px;
+    background: #1a1a1a;
+    text-align: center;
+}
+#contact h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #121212;
+    font-size: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------- */
+/* Admin and Login Styles */
+/* ---------------------- */
+
+/* Container for Login and Admin Pages */
+.login-container, .admin-container {
+    max-width: 500px;
+    margin: 100px auto;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(255, 140, 0, 0.3);
+}
+
+.login-container h2, .admin-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff8c00;
+}
+
+/* Form Elements */
+.login-container form, .admin-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label, .admin-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-container input, .admin-container input, 
+.login-container textarea, .admin-container textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #0d0d0d;
+    color: white;
+}
+
+/* Buttons */
+.login-container button, .admin-container button {
+    padding: 10px;
+    background: linear-gradient(90deg, #ff8c00, #ff0080);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.login-container button:hover, .admin-container button:hover {
+    transform: scale(1.05);
+}
+
+/* Flash Messages */
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+.flashes li {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.flashes li.success {
+    background: #28a745;
+}
+.flashes li.danger {
+    background: #dc3545;
+}
+.flashes li.info {
+    background: #17a2b8;
+}
+
+/* Dashboard Table Styles */
+.admin-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.admin-container th, .admin-container td {
+    padding: 10px;
+    border: 1px solid #333;
+    text-align: left;
+}
+.admin-container th {
+    background: #333;
+}
+.admin-container td {
+    background: #0d0d0d;
+}
+.admin-container a {
+    color: #ff8c00;
+    text-decoration: none;
+    margin-right: 10px;
+}
+.admin-container a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,201 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  /* Navigation Bar (Optional) */
+  nav {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+  }
+  .nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-container .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff8c00;
+    text-decoration: none;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  .nav-links li a:hover {
+    color: #ff0080;
+  }
+  
+  /* Skills Page Layout */
+  .skills-page {
+    padding: 100px 20px 40px; /* extra top padding for fixed nav */
+  }
+  
+  /* Header Section */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .header h1 {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #ff8c00, #ff0080);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  /* Skills Container */
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  .skill-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.5);
+  }
+  .skill-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 140, 0, 0.2), rgba(255, 0, 128, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .skill-card:hover::before {
+    opacity: 1;
+  }
+  .skill-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  .skill-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+  }
+  .skill-card p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  /* Testimonials Section */
+  .testimonials {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .testimonials h2 {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  .testimonial-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.5);
+  }
+  .review {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-style: italic;
+  }
+  .client-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  /* Call-to-Action Section */
+  .cta {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  .cta p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(90deg, #ff8c00, #ff0080);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
+  }
+  

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Project - Portfolio Admin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+</head>
+<body>
+  <div class="admin-container">
+    <h2>Add New Project</h2>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+    <form method="post" action="{{ url_for('add_project') }}" enctype="multipart/form-data">
+      <label for="title">Project Title:</label>
+      <input type="text" id="title" name="title" required>
+      
+      <label for="description">Project Description:</label>
+      <textarea id="description" name="description" rows="4" required></textarea>
+      
+      <label for="image">Project Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
+      
+      <button type="submit">Add Project</button>
+    </form>
+    
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+  </div>
+
+  <script>
+    CKEDITOR.replace('description', {
+      filebrowserUploadUrl: "{{ url_for('upload') }}",
+      filebrowserUploadMethod: 'form'
+    });
+  </script>
+</body>
+</html>

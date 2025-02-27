@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ project.title }} | Aqeel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='project_detail.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='project.css') }}">
+  <!-- GSAP, jQuery, and Font Awesome if needed -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="logo">Aqeel</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}#hero">Home</a></li>
+        <li><a href="{{ url_for('skills') }}">Skills</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Detail Hero Section -->
+  <section id="project-hero" class="project-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>{{ project.title }}</h1>
+      {% if project.short_description %}
+        <p>{{ project.short_description|safe }}</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Project Detail Content Section -->
+  <section class="project-detail-section">
+    <div class="project-detail-container">
+      {% if project.image %}
+      <div class="project-detail-image">
+        <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }}">
+      </div>
+      {% endif %}
+      <div class="project-detail-info">
+        <h2>Project Overview</h2>
+        <p>{{ project.description|safe }}</p>
+        <!-- Additional details such as technologies, links, etc., can be added here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="cta-section">
+    <h2>Interested in this Project?</h2>
+    <p>Contact me to discuss more details or potential collaboration.</p>
+    <a href="{{ url_for('contact') }}" class="btn">Get In Touch</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Aqeel. All Rights Reserved.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='project.js') }}"></script>
+</body>
+</html>

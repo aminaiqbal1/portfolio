@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | AI Developer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- GSAP ScrollTrigger Plugin --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Typed.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="logo">Aqeel</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}#hero">Home</a></li>
+        <li><a href="{{ url_for('skills') }}">Skills</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Image -->
+  <section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 id="title">Hi, I'm <span class="highlight">Aqeel Ahmed</span></h1>
+        <h2 id="typed-text"></h2>
+        <a href="{{ url_for('projects') }}" class="btn">View Projects</a>
+      </div>
+      <div class="hero-image">
+        <!-- Replace '11.jpg' with your actual image filename -->
+        <img src="{{ url_for('static', filename='11.jpg') }}" alt="Your Name" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section with Enhanced Visuals and Animations -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <ul>
+      <li><i class="skill-icon fas fa-code"></i> Python</li>
+      <li><i class="skill-icon fas fa-brain"></i> AI & ML</li>
+      <li><i class="skill-icon fas fa-server"></i> Flask & Django</li>
+      <li><i class="skill-icon fas fa-desktop"></i> JavaScript & GSAP</li>
+      <li><i class="skill-icon fas fa-robot"></i> Deep Learning</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section (Futuristic) -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      {% for project in projects %}
+      <div class="project-card">
+        <div class="project-inner">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description | safe }}</p>
+          {% if project.image %}
+            <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }}" style="max-width:100%; margin-top: 10px;">
+          {% endif %}
+          <a href="{{ url_for('project_detail', id=project.id) }}" class="project-btn">View Details</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: aqeel03319384502@example.com</p>
+    <!-- Social icons / contact form can be added here -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Aqeel. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Background Canvas for VFX (optional) -->
+  <canvas id="backgroundCanvas"></canvas>
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+  <!-- Font Awesome for skill icons (Optional) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

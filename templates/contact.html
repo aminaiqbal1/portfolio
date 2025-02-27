@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='project.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #0a0a0a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .contact-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      width: 400px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(232, 206, 0, 0.5);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      text-transform: uppercase;
+      color: #ff8c00;
+    }
+    .input-box {
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .input-box input, .input-box textarea {
+      width: 100%;
+      padding: 10px;
+      background: transparent;
+      border: 2px solid #ff8c00;
+      border-radius: 10px;
+      outline: none;
+      color: white;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    .input-box input:focus, .input-box textarea:focus {
+      box-shadow: 0 0 15px #ff8c00;
+    }
+    .input-box textarea {
+      resize: none;
+      height: 80px;
+    }
+    .send-btn {
+      width: 100%;
+      padding: 10px;
+      background: #ff8c00;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      animation: pulse 1.5s infinite;
+    }
+    .send-btn:hover {
+      background: #ff8c00;
+      box-shadow: 0 0 10px #ff8c00;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #ff8c00 }
+      50% { box-shadow: 0 0 20px #ff8c00; }
+      100% { box-shadow: 0 0 10px #ff8c00; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="logo">Aqeel</a>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}#hero">Home</a></li>
+        <li><a href="{{ url_for('skills') }}">Skills</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <form action="{{ url_for('contact') }}" method="POST">
+      <div class="input-box">
+        <input type="text" name="name" placeholder="Your Name" required>
+      </div>
+      <div class="input-box">
+        <input type="email" name="email" placeholder="Your Email" required>
+      </div>
+      <div class="input-box">
+        <input type="text" name="subject" placeholder="Subject">
+      </div>
+      <div class="input-box">
+        <textarea name="message" placeholder="Your Message" required></textarea>
+      </div>
+      <button class="send-btn" type="submit">Send Message</button>
+    </form>
+  </div>
+</body>
+</html>
