@@ -213,5 +213,7 @@ def project_detail(id):
         return redirect(url_for('projects'))
     return render_template('project_detail.html', project=project)
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
+
