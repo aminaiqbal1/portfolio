@@ -1,140 +1,205 @@
 /* Global Styles */
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #0d0d0d;
-    color: #fff;
-    overflow-x: hidden;
-  }
-  
-  /* Navigation Bar */
-  nav {
-    background: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100;
-  }
-  .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .nav-links {
-    list-style: none;
-    display: flex;
-  }
-  .nav-links li {
-    margin-left: 20px;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover {
-    color: #ff8c00;
-  }
-  
-  /* Project Hero Section */
-  .project-hero {
-    position: relative;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url('{{ url_for("static", filename="project-bg.jpg") }}') no-repeat center center/cover;
-  }
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-  }
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #000; /* Pure black background */
+  color: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+nav {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-container .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f1c40f; /* Gold accent */
+  text-decoration: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+.nav-links li a:hover {
+  color: #f1c40f;
+}
+
+/* Project Detail Hero Section */
+.project-hero {
+  position: relative;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Project Detail Content Section */
+.project-detail-section {
+  padding: 60px 20px;
+  background: #000;
+}
+.project-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.project-detail-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
+}
+.project-detail-info {
+  flex: 1;
+  min-width: 300px;
+}
+.project-detail-info h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.project-detail-info p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Call-to-Action Section */
+.cta-section {
+  background: #111;
+  text-align: center;
+  padding: 60px 20px;
+}
+.cta-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cta-section p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+.cta-section .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.cta-section .btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(241, 196, 15, 0.7);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1a1a;
+  font-size: 1rem;
+  color: #aaa;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 3rem;
-    margin: 0;
-    color: #ff8c00;
+    font-size: 2.5rem;
   }
   .hero-content p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-  }
-  
-  /* Project Detail Section */
-  .project-detail-section {
-    padding: 60px 20px;
-    background: #1a1a1a;
-  }
-  .project-detail-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-  .project-detail-image {
-    flex: 1 1 400px;
-  }
-  .project-detail-image img {
-    width: 100%;
-    border-radius: 10px;
-  }
-  .project-detail-info {
-    flex: 1 1 400px;
-  }
-  .project-detail-info h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  .project-detail-info p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-  
-  /* Call-to-Action Section */
-  .cta-section {
-    padding: 40px 20px;
-    text-align: center;
-    background: #0d0d0d;
-  }
-  .cta-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-  .cta-section p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  .cta-section .btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: linear-gradient(90deg, #ff8c00, #ff0080);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: transform 0.3s;
-  }
-  .cta-section .btn:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Footer */
-  footer {
-    padding: 20px;
-    text-align: center;
-    background: #121212;
     font-size: 1rem;
   }
-  
+  .project-detail-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .project-detail-info h2 {
+    font-size: 1.8rem;
+  }
+  .project-detail-info p {
+    font-size: 0.9rem;
+  }
+  .cta-section h2 {
+    font-size: 2.2rem;
+  }
+  .cta-section p {
+    font-size: 1rem;
+  }
+  .cta-section .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    flex-direction: column;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .project-hero {
+    height: 40vh;
+  }
+}
