@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Hero section animations
-    gsap.from(".hero-text h1", { duration: 1.5, x: -50, opacity: 0, ease: "power3.out" });
+    gsap.from(".hero-text h1", { duration: 1.5, x: -50, opacity: 1, ease: "power3.out" });
     gsap.from(".hero-text h2", { duration: 1.2, x: -50, opacity: 0, delay: 0.5, ease: "power3.out" });
     gsap.from(".btn", { duration: 1, x: -50, opacity: 0, delay: 0.7, ease: "power3.out" });
     gsap.from(".hero-image img", { duration: 1.5, x: 50, opacity: 0, ease: "power3.out" });
     
     // Typed.js effect for dynamic text in hero section
     const typed = new Typed("#typed-text", {
-      strings: ["Software Engineer", "Python Expert", "AI Developer"],
+      strings: ["Machine Learning Engineer", "Python Expert", "AI Developer","Data Analysis and Visualization"],
       typeSpeed: 50,
       backSpeed: 50,
       loop: true
