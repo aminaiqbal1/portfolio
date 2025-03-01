@@ -1,13 +1,9 @@
 /* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
-  background: #0d0d0d;
-  color: #fff;
+  margin: 0;
   font-family: 'Poppins', sans-serif;
+  background: #000; /* Pure black background */
+  color: #fff;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -15,31 +11,26 @@ body {
 /* Navigation Bar */
 nav {
   width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
-  backdrop-filter: blur(12px);
-  transition: all 0.3s ease-in-out;
+  z-index: 100;
+  backdrop-filter: blur(5px);
 }
 .nav-container {
   max-width: 1200px;
   margin: auto;
-  padding: 15px 30px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.logo {
-  font-size: 2rem;
+.nav-container .logo {
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #ff8c00;
+  color: #f1c40f; /* Gold accent */
   text-decoration: none;
-  transition: transform 0.3s;
-}
-.logo:hover {
-  transform: scale(1.1);
 }
 .nav-links {
   list-style: none;
@@ -48,16 +39,15 @@ nav {
 }
 .nav-links li a {
   text-decoration: none;
-  color: white;
+  color: #fff;
   font-size: 1rem;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s;
 }
 .nav-links li a:hover {
-  color: #ff0080;
-  transform: translateY(-3px);
+  color: #f1c40f;
 }
 
-/* Hero Section */
+/* Hero Section for Projects */
 .project-hero {
   position: relative;
   height: 60vh;
@@ -65,9 +55,7 @@ nav {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url('https://source.unsplash.com/1600x900/?technology') center/cover;
-  margin-top: 70px;
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7);
+  padding: 0 20px;
 }
 .hero-overlay {
   position: absolute;
@@ -76,59 +64,57 @@ nav {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 .hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
 }
 .hero-content h1 {
-  font-size: 3.5rem;
-  background: linear-gradient(90deg, #ff8c00, #ff0080);
+  font-size: 3rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: fadeIn 1.5s ease-out;
 }
 .hero-content p {
   font-size: 1.2rem;
-  margin-top: 10px;
+  color: #ccc;
 }
 
 /* Projects Section */
 .projects-section {
-  padding: 80px 20px;
+  padding: 60px 20px;
+  background: #000;
   text-align: center;
 }
 .section-title {
-  font-size: 3rem;
-  margin-bottom: 50px;
-  opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
-  padding: 0 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
 }
 .project-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-in-out forwards;
-  position: relative;
 }
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
 }
 .card-img img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
   display: block;
 }
 .card-info {
@@ -138,84 +124,114 @@ nav {
 .card-info h3 {
   font-size: 1.8rem;
   margin-bottom: 10px;
-  color: #ff8c00;
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .card-info p {
   font-size: 1rem;
+  color: #ccc;
   margin-bottom: 15px;
-  line-height: 1.6;
-  color: #ddd;
 }
 .card-btn {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
-  border: 2px solid #ff8c00;
-  border-radius: 30px;
+  border: 1px solid #f1c40f;
+  border-radius: 25px;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 .card-btn:hover {
-  background: #ff8c00;
-  color: #0d0d0d;
+  background: #f1c40f;
+  color: #000;
 }
 
 /* Call-to-Action Section */
 .cta-section {
-  padding: 80px 20px;
   background: #111;
   text-align: center;
+  padding: 60px 20px;
 }
 .cta-section h2 {
   font-size: 2.8rem;
   margin-bottom: 20px;
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .cta-section p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  color: #ccc;
   margin-bottom: 30px;
 }
-.btn {
+.cta-section .btn {
   display: inline-block;
-  padding: 14px 28px;
-  font-size: 1.3rem;
+  padding: 12px 24px;
+  font-size: 1.2rem;
   color: #fff;
-  background: linear-gradient(90deg, #ff8c00, #ff0080);
+  background: linear-gradient(90deg, #f39c12, #f1c40f);
   border-radius: 50px;
   text-decoration: none;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.btn:hover {
+.cta-section .btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.7);
+  box-shadow: 0 0 15px rgba(241, 196, 15, 0.7);
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background: #121212;
+  background: #1a1a1a;
   font-size: 1rem;
+  color: #aaa;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(-20px);
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
   }
-  to {
-      opacity: 1;
-      transform: translateY(0);
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 2.4rem;
+  }
+  .card-info h3 {
+    font-size: 1.5rem;
+  }
+  .card-info p {
+    font-size: 0.9rem;
+  }
+  .cta-section h2 {
+    font-size: 2.2rem;
+  }
+  .cta-section p {
+    font-size: 1rem;
+  }
+  .cta-section .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
   }
 }
-@keyframes fadeInUp {
-  from {
-      opacity: 0;
-      transform: translateY(30px);
+
+@media (max-width: 480px) {
+  .nav-container {
+    flex-direction: column;
   }
-  to {
-      opacity: 1;
-      transform: translateY(0);
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .project-hero {
+    height: 50vh;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }
